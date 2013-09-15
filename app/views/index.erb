@@ -1,23 +1,35 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+<div class="container">
+ 
+
+ <div class="page-header">
+  <h1>Heads of twitter</h1>
 </div>
+
+ <p><%  @politician.each do |senator| %></p>
+<div class="container">
+  <div class="row">
+    <div class="span2">
+      <img src="<%= senator.avatar %>" height="128" width="128"  alt="" class="img-rounded">
+    </div>
+    <div class="span4">
+      <blockquote>
+        <p><%= senator.name %> </p>
+        <small><cite title="Source Title">    State: <%= senator.state%>   <i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+      <p>
+        <i class=" icon-heart"></i>  Index: <%= senator.average_score.to_f.round(2) %> <br>
+
+        <i class="icon-gift"></i> Total followers: <%= senator.total_followers%>  <br>
+         <i class="icon-globe"></i> <a href="http://www.twitter.com/<%=senator.handle%>"> <%=senator.handle  %> </a><br>
+        <i class=>
+      </p>
+    </div>
+
+
+  </div>
+</div> 
+</div>
+ <% end %>
+ <br>
+

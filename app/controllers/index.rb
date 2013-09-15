@@ -1,4 +1,10 @@
 get '/' do
-  # Look in app/views/index.erb
+
+ @politician =  Politician.order("average_score DESC")
+
+
+
+
   erb :index
 end
+

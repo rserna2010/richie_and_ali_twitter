@@ -3,9 +3,10 @@ class CreatePoliticians < ActiveRecord::Migration
     create_table :politicians do |t|
     t.string  :name
     t.string  :state
-    t.decimal :average_score
+    t.float :average_score
     t.integer :total_followers
-    t.string  :hande
+    t.integer :total_tweets
+    t.string  :handle
     t.string  :avatar
 
     t.timestamps
