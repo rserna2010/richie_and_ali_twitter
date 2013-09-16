@@ -1,35 +1,97 @@
 
 <div class="container">
- 
+
+
+
 
  <div class="page-header">
   <h1>Heads of twitter</h1>
 </div>
 
- <p><%  @politician.each do |senator| %></p>
-<div class="container">
-  <div class="row">
-    <div class="span2">
-      <img src="<%= senator.avatar %>" height="128" width="128"  alt="" class="img-rounded">
-    </div>
-    <div class="span4">
-      <blockquote>
-        <p><%= senator.name %> </p>
-        <small><cite title="Source Title">    State: <%= senator.state%>   <i class="icon-map-marker"></i></cite></small>
-      </blockquote>
-      <p>
-        <i class=" icon-heart"></i>  Index: <%= senator.average_score.to_f.round(2) %> <br>
 
-        <i class="icon-gift"></i> Total followers: <%= senator.total_followers%>  <br>
-         <i class="icon-globe"></i> <a href="http://www.twitter.com/<%=senator.handle%>"> <%=senator.handle  %> </a><br>
-        <i class=>
-      </p>
+
+</div>
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#home">Positive</a></li>
+  <li><a href="#profile">Negative</a></li>
+
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="Positive"> 
+    <%  @politician_positive.each do |senator| %>
+    <div class="container">
+      <div class="row">
+        <div class="span2">
+          <img src="<%= senator.avatar %>" height="128" width="128"  alt="" class="img-rounded">
+        </div>
+        <div class="span4">
+          <blockquote>
+            <p><%= senator.name %> </p>
+            <small><cite title="Source Title">    State: <%= senator.state%>   <i class="icon-map-marker"></i></cite></small>
+          </blockquote>
+          <p>
+            <i class=" icon-heart"></i>  Index: <%= senator.average_score.to_f.round(2) %> <br>
+            <i class=" icon-heart"></i>  Total tweets <%= senator.total_tweets %> <br>
+
+            <i class="icon-gift"></i> Total followers: <%= senator.total_followers%>  <br>
+            <i class="icon-globe"></i> <a href="http://www.twitter.com/<%=senator.handle%>"> <%=senator.handle  %> </a><br>
+            <i class=>
+            </p>
+          </div>
+
+        </div>
+      </div> 
+      <% end %>
+      <br>
+
     </div>
+    <div class="tab-pane" id="profile">
+     <%  @politician_negative.each do |senator| %>
+     <div class="container">
+      <div class="row">
+        <div class="span2">
+          <img src="<%= senator.avatar %>" height="128" width="128"  alt="" class="img-rounded">
+        </div>
+        <div class="span4">
+          <blockquote>
+            <p><%= senator.name %> </p>
+            <small><cite title="Source Title">    State: <%= senator.state%>   <i class="icon-map-marker"></i></cite></small>
+          </blockquote>
+          <p>
+            <i class=" icon-heart"></i>  Index: <%= senator.average_score.to_f.round(2) %> <br>
+            <i class=" icon-heart"></i>  Total tweets <%= senator.total_tweets %> <br>
+
+            <i class="icon-gift"></i> Total followers: <%= senator.total_followers%>  <br>
+            <i class="icon-globe"></i> <a href="http://www.twitter.com/<%=senator.handle%>"> <%=senator.handle  %> </a><br>
+            <i class=>
+            </p>
+          </div>
+
+
+        </div> 
+      </div>
+      <% end %>
+      <br>
+    </div>
+
 
 
   </div>
-</div> 
-</div>
- <% end %>
- <br>
+
+  <script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+  </script>
+
+
+
+
+
+
+
+
+
 

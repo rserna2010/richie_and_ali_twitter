@@ -24,7 +24,7 @@ require 'twitter'
 
 require 'sentimental'
     Sentimental.load_defaults
-    Sentimental.threshold = 0.0
+    Sentimental.threshold = 0.5
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
